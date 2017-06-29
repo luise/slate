@@ -70,12 +70,6 @@ html, body {
   font-size: 13px;
   font-weight: bold;
 
-  // This is the logo at the top of the ToC
-  &>img {
-    display: block;
-    max-width: 100%;
-  }
-
   &>.search {
     position: relative;
 
@@ -99,10 +93,6 @@ html, body {
       color: $nav-text;
       @extend %icon-search;
     }
-  }
-
-  img+.tocify {
-    margin-top: $logo-margin;
   }
 
   .search-results {
@@ -143,6 +133,20 @@ html, body {
     overflow-x: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .logo {
+    padding: $nav-padding $nav-padding 0 $nav-padding;
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    color: $nav-text;
+  }
+
+  .logo>a {
+    text-decoration: none;
+    font-weight: bold;
+    color: $nav-text;
   }
 
   // The Table of Contents is composed of multiple nested
