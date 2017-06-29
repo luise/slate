@@ -1,110 +1,96 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
-  <br>
-  <a href="https://travis-ci.org/lord/slate"><img src="https://travis-ci.org/lord/slate.svg?branch=master" alt="Build Status"></a>
-</p>
+# Generating Docuementation with Slate
 
-<p align="center">Slate helps you create beautiful, intelligent, responsive API documentation.</p>
+This repository contains the code necessary to compile Quilt's
+documentation, and is based on [Slate](https://github.com/lord/slate).
+If you got here because you're
+looking for documentation about Quilt, head over to
+[docs.quilt.io](http://docs.quilt.io), which contains the Quilt docs,
+compiled using the code here. If you're looking for the Markdown files
+that hold the contents of the documentation, head to the
+[docs folder of the Quilt repository](https://github.com/quilt/quilt/tree/master/docs).
 
-<p align="center"><img src="https://raw.githubusercontent.com/lord/img/master/screenshot-slate.png" width=700 alt="Screenshot of Example Documentation created with Slate"></p>
+This page describes how Slate works, how to install Slate, and how
+to compile the Quilt documentation. 
 
-<p align="center"><em>The example above was created with Slate. Check it out at <a href="https://lord.github.io/slate">lord.github.io/slate</a>.</em></p>
+## Slate and directory layout
 
-Features
-------------
+Slate compiles markdown files to HTML using a Ruby application called
+[Middleman](https://middlemanapp.com/).
+Slate will generate one output HTML page for each file in the
+[source](source) directory that has suffix `.html.md`. These
+files are converted from Markdown to HTML using the layout defined 
+in [layout.erb](source/layouts/layout.erb). To change the contents
+of the documentation, change the Markdown files located in the Quilt
+repository; to change the way the
+HTML gets generated (e.g., to add an image at the top of the table of
+contents), change `layout.erb` in this repository.
 
-* **Clean, intuitive design** — With Slate, the description of your API is on the left side of your documentation, and all the code examples are on the right side. Inspired by [Stripe's](https://stripe.com/docs/api) and [Paypal's](https://developer.paypal.com/webapps/developer/docs/api/) API docs. Slate is responsive, so it looks great on tablets, phones, and even in print.
+Files with suffix `.html.md` can include other markdown files by adding
+an `includes` section at top.  For example, the following file:
 
-* **Everything on a single page** — Gone are the days when your users had to search through a million pages to find what they wanted. Slate puts the entire documentation on a single page. We haven't sacrificed linkability, though. As you scroll, your browser's hash will update to the nearest header, so linking to a particular point in the documentation is still natural and easy.
-
-* **Slate is just Markdown** — When you write docs with Slate, you're just writing Markdown, which makes it simple to edit and understand. Everything is written in Markdown — even the code samples are just Markdown code blocks.
-
-* **Write code samples in multiple languages** — If your API has bindings in multiple programming languages, you can easily put in tabs to switch between them. In your document, you'll distinguish different languages by specifying the language name at the top of each code block, just like with Github Flavored Markdown.
-
-* **Out-of-the-box syntax highlighting** for [over 100 languages](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers), no configuration required.
-
-* **Automatic, smoothly scrolling table of contents** on the far left of the page. As you scroll, it displays your current position in the document. It's fast, too. We're using Slate at TripIt to build documentation for our new API, where our table of contents has over 180 entries. We've made sure that the performance remains excellent, even for larger documents.
-
-* **Let your users update your documentation for you** — By default, your Slate-generated documentation is hosted in a public Github repository. Not only does this mean you get free hosting for your docs with Github Pages, but it also makes it simple for other developers to make pull requests to your docs if they find typos or other problems. Of course, if you don't want to use GitHub, you're also welcome to host your docs elsewhere.
-
-Getting started with Slate is super easy! Simply fork this repository and follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [sample docs](http://lord.github.io/slate).
-
-Getting Started with Slate
-------------------------------
-
-### Prerequisites
-
-You're going to need:
-
- - **Linux or OS X** — Windows may work, but is unsupported.
- - **Ruby, version 2.2.5 or newer**
- - **Bundler** — If Ruby is already installed, but the `bundle` command doesn't work, just run `gem install bundler` in a terminal.
-
-### Getting Set Up
-
-1. Fork this repository on Github.
-2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/slate.git`
-3. `cd slate`
-4. Initialize and start Slate. You can either do this locally, or with Vagrant:
-
-```shell
-# either run this to run locally
-bundle install
-bundle exec middleman server
-
-# OR run this to run with vagrant
-vagrant up
+```
+---
+title: My documentation
+includes:
+  - MySubFile
+---
+This is some introductory content.
 ```
 
-You can now see the docs at http://localhost:4567. Whoa! That was fast!
+would generate a HTML page with title "My documentation", and that contains
+"This is some introductory content", followed by all of the content in
+`source/_MySubFile.md` (note that the filename is the name listed under
+"includes", with an added underscore prefix and ".md" suffix; this format
+is dictated by Ruby).
 
-Now that Slate is all set up on your machine, you'll probably want to learn more about [editing Slate markdown](https://github.com/lord/slate/wiki/Markdown-Syntax), or [how to publish your docs](https://github.com/lord/slate/wiki/Deploying-Slate).
+## Generating the website
 
-If you'd prefer to use Docker, instructions are available [in the wiki](https://github.com/lord/slate/wiki/Docker).
+### One-time setup
 
-Companies Using Slate
----------------------------------
+If you've never generated the website before, you'll need to install
+Ruby and bundler (which is Ruby's dependency management tool).  To do
+this using Homebrew:
 
-* [NASA](https://api.nasa.gov)
-* [IBM](https://docs.cloudant.com/api.html)
-* [Sony](http://developers.cimediacloud.com)
-* [Best Buy](https://bestbuyapis.github.io/api-documentation/)
-* [Travis-CI](https://docs.travis-ci.com/api/)
-* [Greenhouse](https://developers.greenhouse.io/harvest.html)
-* [Woocommerce](http://woocommerce.github.io/woocommerce-rest-api-docs/)
-* [Appium](http://appium.io/slate/en/master)
-* [Dwolla](https://docs.dwolla.com/)
-* [Clearbit](https://clearbit.com/docs)
-* [Coinbase](https://developers.coinbase.com/api)
-* [Parrot Drones](http://developer.parrot.com/docs/bebop/)
-* [Fidor Bank](http://docs.fidor.de/)
-* [Scale](https://docs.scaleapi.com/)
+```console
+$ brew install ruby
+$ gem install bundler # gem is Ruby's equivalent of make.
+```
 
-You can view more in [the list on the wiki](https://github.com/lord/slate/wiki/Slate-in-the-Wild).
+Next, clone this repository, and use bundler to install Slate and fetch
+the necessary dependencies:
 
-Need Help? Found a bug?
---------------------
+```console
+$ git clone https://github.com/quilt/slate.git
+$ cd slate
+$ bundle install
+```
 
-[Submit an issue](https://github.com/lord/slate/issues) to the Slate Github if you need any help. And, of course, feel free to submit pull requests with bug fixes or changes.
+At this point, everything necessary to create the website has been
+installed.
 
-Contributors
---------------------
+### Re-generating the HTML files
 
-Slate was built by [Robert Lord](https://lord.io) while interning at [TripIt](https://www.tripit.com/).
+To generate the compiled HTML files, run:
 
-Thanks to the following people who have submitted major pull requests:
+```console
+$ bundle exec middleman build --clean
+```
 
-- [@chrissrogers](https://github.com/chrissrogers)
-- [@bootstraponline](https://github.com/bootstraponline)
-- [@realityking](https://github.com/realityking)
-- [@cvkef](https://github.com/cvkef)
+This command will place all of the compiled files in the
+`build` folder. For each file `source/foo.html.md`, there will
+be a corresponding file `build/foo.html` that contains the compiled
+HTML.
 
-Also, thanks to [Sauce Labs](http://saucelabs.com) for helping sponsor the project.
+### Generating the Quilt docs
 
-Special Thanks
---------------------
-- [Middleman](https://github.com/middleman/middleman)
-- [jquery.tocify.js](https://github.com/gfranko/jquery.tocify.js)
-- [middleman-syntax](https://github.com/middleman/middleman-syntax)
-- [middleman-gh-pages](https://github.com/edgecase/middleman-gh-pages)
-- [Font Awesome](http://fortawesome.github.io/Font-Awesome/)
+To generate the Quilt docs, you'll need to copy the markdown files
+from the main [Quilt repository](https://github.com/quilt/quilt/tree/master/docs)
+into the source folder here:
+
+```console
+$ cp <path to Quilt>/docs/*md source/
+```
+
+And then run the `bundle` command above. Alternately, you can run
+`make docs` from the [Quilt repository](https://github.com/quilt).
+
