@@ -465,7 +465,8 @@ html, body {
 .content {
   pre, blockquote {
     background-color: $code-bg;
-    color: #fff;
+    // Default code color, e.g. used for plain text and console output.
+    color: #333;
     // Make the border rounded.
     border-radius: 5px;
 
@@ -476,7 +477,6 @@ html, body {
     margin: 0 $main-padding 1em $main-padding;
 
     box-sizing: border-box;
-    text-shadow: 0px 1px 2px rgba(0,0,0,0.4);
 
     @extend %right-col;
 
