@@ -19,6 +19,18 @@ License for the specific language governing permissions and limitations
 under the License.
 */
 
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src:font-url('OpenSans-Regular.woff') format('woff');
+  src:font-url('OpenSans-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'Molengo-Regular';
+  src:font-url('Molengo-Regular.woff') format('woff');
+  src:font-url('Molengo-Regular.ttf')  format('truetype');
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // GENERAL STUFF
 ////////////////////////////////////////////////////////////////////////////////
