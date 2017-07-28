@@ -379,6 +379,18 @@ html, body {
     }
   }
 
+  a {
+    color: #6c71c4;
+  }
+
+  a:visited {
+    color: #b58900;
+  }
+
+  a:hover {
+    color: $light-purple;
+  }
+
   dt {
     font-weight: bold;
   }
