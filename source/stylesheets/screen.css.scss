@@ -345,13 +345,13 @@ html, body {
 
   h3, h4, h5, h6 {
     @extend %header-font;
-    font-size: 15px;
+    font-size: 17px;
     margin-top: 1em;
     margin-bottom: 0.8em;
   }
 
   h4, h5, h6 {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   hr {
@@ -401,7 +401,7 @@ html, body {
   }
 
   p, li, dt, dd {
-    line-height: 1.8;
+    line-height: 1.6;
     margin-top: 0;
   }
 
@@ -429,7 +429,7 @@ html, body {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     background: $aside-notice-bg;
-    line-height: 1.8;
+    line-height: 1.6;
 
     &.warning {
       background-color: $aside-warning-bg;
