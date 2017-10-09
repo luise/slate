@@ -26,6 +26,9 @@ under the License.
     </style>
     <%= stylesheet_link_tag :screen, media: :screen %>
     <%= stylesheet_link_tag :print, media: :print %>
+    <% current_page.data.stylesheets && current_page.data.stylesheets.each do |stylesheet| %>
+      <link href="<%= stylesheet %>" rel="stylesheet" media="all" />
+    <% end %>
     <% if current_page.data.search %>
       <%= javascript_include_tag  "all" %>
     <% else %>
