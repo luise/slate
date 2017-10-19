@@ -1,4 +1,4 @@
-# Generating Docuementation with Slate
+# Generating Documentation with Slate
 
 This repository contains the code necessary to compile Kelda's
 documentation, and is based on [Slate](https://github.com/lord/slate).
