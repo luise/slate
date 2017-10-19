@@ -1,16 +1,16 @@
 # Generating Docuementation with Slate
 
-This repository contains the code necessary to compile Quilt's
+This repository contains the code necessary to compile Kelda's
 documentation, and is based on [Slate](https://github.com/lord/slate).
 If you got here because you're
-looking for documentation about Quilt, head over to
-[docs.quilt.io](http://docs.quilt.io), which contains the Quilt docs,
+looking for documentation about Kelda, head over to
+[docs.kelda.io](http://docs.kelda.io), which contains the Kelda docs,
 compiled using the code here. If you're looking for the Markdown files
 that hold the contents of the documentation, head to the
-[docs folder of the Quilt repository](https://github.com/quilt/quilt/tree/master/docs).
+[docs folder of the Kelda repository](https://github.com/kelda/kelda/tree/master/docs).
 
 This page describes how Slate works, how to install Slate, and how
-to compile the Quilt documentation. 
+to compile the Kelda documentation.
 
 ## Slate and directory layout
 
@@ -20,7 +20,7 @@ Slate will generate one output HTML page for each file in the
 [source](source) directory that has suffix `.html.md`. These
 files are converted from Markdown to HTML using the layout defined 
 in [layout.erb](source/layouts/layout.erb). To change the contents
-of the documentation, change the Markdown files located in the Quilt
+of the documentation, change the Markdown files located in the Kelda
 repository; to change the way the
 HTML gets generated (e.g., to add an image at the top of the table of
 contents), change `layout.erb` in this repository.
@@ -60,7 +60,7 @@ Next, clone this repository, and use bundler to install Slate and fetch
 the necessary dependencies:
 
 ```console
-$ git clone https://github.com/quilt/slate.git
+$ git clone https://github.com/kelda/slate.git
 $ cd slate
 $ bundle install
 ```
@@ -81,16 +81,16 @@ This command will place all of the compiled files in the
 be a corresponding file `build/foo.html` that contains the compiled
 HTML.
 
-### Generating the Quilt docs
+### Generating the Kelda docs
 
-To generate the Quilt docs, you'll need to copy the markdown files
-from the main [Quilt repository](https://github.com/quilt/quilt/tree/master/docs)
+To generate the Kelda docs, you'll need to copy the markdown files
+from the main [Kelda repository](https://github.com/kelda/kelda/tree/master/docs)
 into the source folder here:
 
 ```console
-$ cp <path to Quilt>/docs/*md source/
+$ cp <path to Kelda>/docs/*md source/
 ```
 
 And then run the `bundle` command above. Alternately, you can run
-`make docs` from the [Quilt repository](https://github.com/quilt).
+`make docs` from the [Kelda repository](https://github.com/kelda).
 
