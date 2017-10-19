@@ -479,11 +479,11 @@ html, body {
     // Make the border rounded.
     border-radius: 5px;
 
-    padding: 2em $main-padding;
+    padding: 1.2em $main-padding;
     // Add a left and right margin equal to the padding of the main content,
     // so that the code block is indented, and the left edge of the code
     // block background lines up with the left side of the main text.
-    margin: 0 $main-padding 1em $main-padding;
+    margin: 1.7em $main-padding 1.7em $main-padding;
 
     box-sizing: border-box;
 
