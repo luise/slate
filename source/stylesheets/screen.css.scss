@@ -320,6 +320,10 @@ html, body {
     border-top: none;
   }
 
+  h2 + h3, h2 + div + h3 {
+    margin-top: 0em;
+  }
+
   h3, h4, h5, h6 {
     @extend %header-font;
     font-size: 17px;
