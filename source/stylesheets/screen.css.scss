@@ -407,7 +407,9 @@ html, body {
   }
 
   img {
-    max-width: 100%;
+    max-width: 60%;
+    display: block;
+    margin: auto;
   }
 
   code {
@@ -527,8 +529,17 @@ html, body {
 ////////////////////////////////////////////////////////////////////////////////
 // These are the styles for phones and tablets
 // There are also a couple styles disperesed
+@media (max-width: $desktop-width) {
+  .content img {
+    max-width: 70%;
+  }
+}
 
 @media (max-width: $tablet-width) {
+  .content img {
+    max-width: 100%;
+  }
+
   .tocify-wrapper {
     left: -$nav-width;
 
