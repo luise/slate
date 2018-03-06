@@ -20,9 +20,13 @@ under the License.
 */
 
 @font-face {
-  font-family: 'OpenSans-Regular';
-  src:font-url('OpenSans-Regular.woff') format('woff');
-  src:font-url('OpenSans-Regular.ttf')  format('truetype');
+  font-family: 'Roboto-Regular';
+  src:font-url('Roboto-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-Bold';
+  src:font-url('Roboto-Bold.ttf')  format('truetype');
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -64,7 +68,7 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: bold;
 
   &>.search {
@@ -175,7 +179,7 @@ html, body {
     font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
-      font-size: 12px;
+      font-size: 14px;
     }
 
     // for embossed look:
@@ -290,12 +294,13 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 30px;
+    font-size: 45px;
     padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding-bottom: 0.1em;
     margin-bottom: $h1-margin-bottom;
     margin-top: 2em;
     border-top: 1px solid #ddd;
+    letter-spacing: -1px;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -305,12 +310,11 @@ html, body {
 
   h2 {
     @extend %header-font;
-    font-size: 20px;
-    margin-top: 2em;
+    font-size: 30px;
     margin-bottom: 0;
-    border-top: 1px solid #ccc;
-    padding-top: 1.2em;
-    padding-bottom: 1.2em;
+    padding-top: 1.3em;
+    padding-bottom: 0.2em;
+    letter-spacing: -1px;
   }
 
   // h2s right after h1s should bump right up
@@ -326,17 +330,17 @@ html, body {
 
   h3, h4, h5, h6 {
     @extend %header-font;
-    font-size: 17px;
+    font-size: 20px;
     margin-top: 2em;
     margin-bottom: 0.3em;
   }
 
   h4 {
-    font-size: 15px;
+    font-size: 18px;
   }
 
   h5, h6 {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   hr {
